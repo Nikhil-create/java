@@ -14,7 +14,7 @@ public class DuplicateInArray {
 			if(arr[Math.abs(arr[i])]>=0)
 				arr[Math.abs(arr[i])]=-arr[Math.abs(arr[i])];
 			else
-				System.out.print(-arr[Math.abs(arr[i])]+" ");
+				System.out.print(Math.abs(arr[i])+" ");
 		}
 
 
