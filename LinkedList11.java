@@ -1,4 +1,4 @@
-public class LinkedList {
+public class LinkedList11 {
 
     public class Node{
         int data;
@@ -80,8 +80,69 @@ public class LinkedList {
             System.out.println();
         }
     }
+
+    public void addbet(int index,int data){
+        Node temp=new Node(data);
+        int i=0;
+        if(head==null){
+            head=temp;
+        }else{
+            Node bet=head;
+            while(i!=index-1){
+                bet=bet.next;
+                i++;
+            }
+            temp.next=bet.next;
+            bet.next=temp;
+            System.out.println(temp.data+" is inserted in index "+index);
+        }
+    }
+
+/*    public void delbet(int index){
+        int i=0;
+        if(head==null){
+            System.out.println("list is empty");
+        }else{
+            Node bet=head;
+            while(i!=index-1){
+                bet=bet.next;
+                i++;
+            }
+            Node temp=bet.next;
+        }
+    }
+   */
+
+    public void findloop(){
+        Node slow=head;
+        Node fast=head;
+        while(slow!=null && fast!=null && fast.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+System.out.println("Loop found");
+            }
+        }
+        System.out.println("Loop not found");
+    }
+
+    void reverse(Node node)
+    {
+        Node prev = null;
+        Node current = node;
+        Node next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        node = prev;
+        head=node;
+    }
+
     public static void main(String argv[]){
-        LinkedList ob=new LinkedList();
+        LinkedList11 ob=new LinkedList11();
         ob.insbeg(1);
         ob.insbeg(2);
         ob.insbeg(3);
@@ -99,5 +160,15 @@ public class LinkedList {
         ob.delbeg();
 
         ob.screen();
+
+
+        ob.screen();
+
+        ob.findloop();
+
+ob.reverse(ob.head);
+        ob.screen();
+
+
     }
 }
