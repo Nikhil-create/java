@@ -39,6 +39,25 @@ public class DLL {
         temp.prev=last;
     }
 
+    public void delBeg(){
+        Node del=head;
+        if(head==null ||del==null){
+            return;
+        }
+
+        if(head==del){
+            head=del.next;
+        }
+
+        if(del.next!=null){
+            del.next.prev=del.prev;
+        }
+        if (del.prev != null) {
+            del.prev.next = del.next;
+        }
+        return;
+    }
+
     public void display(){
         Node current=head;
         Node last=head;
@@ -63,6 +82,11 @@ public class DLL {
             DLL ob=new DLL();
             ob.append(3);
             ob.push(2);
+            ob.push(5);
+            ob.push(11);
+            ob.push(9);
+            ob.display();
+            ob.delBeg();
             ob.display();
     }
 }
